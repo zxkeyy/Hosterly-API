@@ -32,12 +32,12 @@ class RoomSerializer(serializers.ModelSerializer):
     bookings = BookingSerializer(many=True, read_only=True)
     class Meta:
         model = Room
-        fields = ['id', 'status', 'type', 'extra_bed', 'bookings']
+        fields = ['id', 'room_number', 'status', 'type', 'extra_bed', 'bookings']
 
         read_only_fields = ['booking_set']
 
 class RoomTypeSerializer(serializers.ModelSerializer):
-    rooms = RoomSerializer(many=True, read_only=True)
+    #rooms = RoomSerializer(many=True, read_only=True)
     class Meta:
         model = RoomType
-        fields = ['id', 'name', 'description', 'price_per_night', 'capacity', 'rooms']
+        fields = ['id', 'name', 'description', 'price_per_night', 'capacity']
